@@ -16,14 +16,14 @@ const Messages = ({ messages, isLoading }: Props) => {
     >
       {messages.map((m, index) => {
         return (
-          
           <div
-          className={`p-4 shadow-md rounded-md ml-10 relative ${
-            m.role === 'user'
-              ? 'bg-[var(--secondary-color)] text-[var(--text-color)]'
-              : 'bg-[var(--primary-color)] text-[var(--text-color)]'
-          }`}
-        >
+            key={index} // Add a unique key prop
+            className={`p-4 shadow-md rounded-md ml-10 relative ${
+              m.role === 'user'
+                ? 'bg-[var(--secondary-color)] text-[var(--text-color)]'
+                : 'bg-[var(--primary-color)] text-[var(--text-color)]'
+            }`}
+          >
             <Markdown text={m.content} />
             {m.role === "user" ? (
               <User2 className="absolute -left-10 top-2 border rounded-full p-1 shadow-lg" />
